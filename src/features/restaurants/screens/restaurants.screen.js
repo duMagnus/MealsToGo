@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SafeAreaView, FlatList } from "react-native";
+import { SafeAreaView, FlatList, TouchableOpacity } from "react-native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import styled, { useTheme } from "styled-components/native";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -23,7 +23,7 @@ const RestaurantListContainer = styled.View`
   flex: 1;
 `;
 
-export const RestaurantsScreen = () => {
+export const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, isLoading } = useContext(RestaurantsContext);
   const theme = useTheme();
   return (
@@ -45,7 +45,15 @@ export const RestaurantsScreen = () => {
               renderItem={({ item }) => {
                 return (
                   <Spacer position="bottom" size="large">
-                    <RestaurantInfoCard restaurant={item} />
+                    <TouchableOpacity
+                      onPress={() =>
+                        navigation.navigate("RestaurantDetail", {
+                          restaurant: item,
+                        })
+                      }
+                    >
+                      <RestaurantInfoCard restaurant={item} />
+                    </TouchableOpacity>
                   </Spacer>
                 );
               }}
