@@ -25,6 +25,7 @@ const RestaurantListContainer = styled.View`
 
 export const RestaurantsScreen = ({ navigation }) => {
   const { restaurants, isLoading } = useContext(RestaurantsContext);
+
   const theme = useTheme();
   return (
     <>
