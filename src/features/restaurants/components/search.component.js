@@ -8,7 +8,7 @@ const SearchBarContainer = styled.View`
   padding: ${(props) => props.theme.space[3]};
 `;
 
-export const Search = () => {
+export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
   const theme = useTheme();
   const { keyword, search } = useContext(LocationContext);
 
@@ -29,6 +29,8 @@ export const Search = () => {
         onChangeText={(text) => {
           setSearchKeyword(text);
         }}
+        icon={isFavouritesToggled ? "heart" : "heart-outline"}
+        onIconPress={onFavouritesToggle}
         iconColor={theme.colors.ui.quaternary}
         rippleColor={theme.colors.ui.quaternary}
         selectionColor={theme.colors.ui.quaternary}
