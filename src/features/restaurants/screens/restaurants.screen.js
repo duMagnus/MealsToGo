@@ -40,7 +40,12 @@ export const RestaurantsScreen = ({ navigation }) => {
             setIsFavouritesToggled(!isFavouritesToggled)
           }
         />
-        {isFavouritesToggled && <FavouritesBar favourites={favourites} />}
+        {isFavouritesToggled && (
+          <FavouritesBar
+            favourites={favourites}
+            onNavigate={navigation.navigate}
+          />
+        )}
         <RestaurantListContainer>
           {isLoading ? (
             <Spacer position={"top"} size={"xlarge"}>
