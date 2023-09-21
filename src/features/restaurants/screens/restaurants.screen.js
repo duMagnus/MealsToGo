@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { SafeAreaView, FlatList, TouchableOpacity } from "react-native";
+import { SafeAreaView, TouchableOpacity } from "react-native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import styled, { useTheme } from "styled-components/native";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -12,6 +12,7 @@ import {
   RestaurantList,
   RestaurantListContainer,
 } from "../components/restaurant-list.styles";
+import { FadeInView } from "../../../components/animations/fade.animations";
 
 const Container = styled(SafeAreaView)`
   flex: 1;
@@ -61,7 +62,9 @@ export const RestaurantsScreen = ({ navigation }) => {
                         })
                       }
                     >
-                      <RestaurantInfoCard restaurant={item} />
+                      <FadeInView>
+                        <RestaurantInfoCard restaurant={item} />
+                      </FadeInView>
                     </TouchableOpacity>
                   </Spacer>
                 );

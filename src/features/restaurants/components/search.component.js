@@ -34,6 +34,7 @@ export const Search = ({ isFavouritesToggled, onFavouritesToggle }) => {
         iconColor={theme.colors.ui.quaternary}
         rippleColor={theme.colors.ui.quaternary}
         selectionColor={theme.colors.ui.quaternary}
+        style={{ backgroundColor: theme.colors.bg.tertiary }}
       />
     </SearchBarContainer>
   );

@@ -4,11 +4,11 @@
     "slug": "MealsToGo",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/magnus.png",
+    "icon": "./assets/mealsToGoLogo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/magnus.png",
-      "resizeMode": "contain",
+      "image": "./assets/mealsToGoSplash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": ["**/*"],
@@ -17,12 +17,9 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/mealsToGoLogo.png",
         "backgroundColor": "#ffffff"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }

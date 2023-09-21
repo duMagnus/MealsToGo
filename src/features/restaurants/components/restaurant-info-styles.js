@@ -1,9 +1,10 @@
 import styled from "styled-components/native";
 import { Card } from "react-native-paper";
 
-export const RestaurantCard = styled(Card)`
+export const RestaurantCard = styled(Card).attrs({ elevation: 0 })`
   border-radius: ${(props) => props.theme.sizes[1]};
   padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.tertiary};
 `;
 
 export const Info = styled.View`
