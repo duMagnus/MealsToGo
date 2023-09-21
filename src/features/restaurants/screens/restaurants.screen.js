@@ -8,21 +8,14 @@ import { ActivityIndicator } from "react-native-paper";
 import { Search } from "../components/search.component";
 import { FavouritesBar } from "../../../components/favourites/favourites-bar.component";
 import { FavouritesContext } from "../../../services/favourites/favourites.context";
+import {
+  RestaurantList,
+  RestaurantListContainer,
+} from "../components/restaurant-list.styles";
 
 const Container = styled(SafeAreaView)`
   flex: 1;
   background-color: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
-
-const RestaurantListContainer = styled.View`
-  background-color: ${(props) => props.theme.colors.bg.secondary};
-  flex: 1;
 `;
 
 export const RestaurantsScreen = ({ navigation }) => {

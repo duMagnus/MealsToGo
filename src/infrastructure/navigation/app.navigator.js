@@ -1,29 +1,18 @@
-import React, { useContext } from "react";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "styled-components";
-import { Button, Text, View } from "react-native";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
-import { AuthenticationContext } from "../../services/authentication/authentication.context";
 import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
 import { LocationContextProvider } from "../../services/location/location.context";
 import { RestaurantContextProvider } from "../../services/restaurants/restaurants.context";
+import { SettingsNavigator } from "./settings.navigator";
 
 const TAB_ICON = {
   RestaurantsNavigator: ["restaurant", "restaurant-outline"],
   Map: ["map", "map-outline"],
-  Settings: ["settings", "settings-outline"],
-};
-
-const SettingsScreen = () => {
-  const { onLogout } = useContext(AuthenticationContext);
-  return (
-    <View>
-      <Text>Settings!</Text>
-      <Button title="logout" onPress={onLogout} />
-    </View>
-  );
+  SettingsNavigator: ["settings", "settings-outline"],
 };
 
 const createScreenOptions = ({ route }, theme) => {
@@ -56,7 +45,10 @@ export const AppNavigator = () => {
               component={RestaurantsNavigator}
             />
             <Tab.Screen name="Map" component={MapScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen
+              name="SettingsNavigator"
+              component={SettingsNavigator}
+            />
           </Tab.Navigator>
         </RestaurantContextProvider>
       </LocationContextProvider>
