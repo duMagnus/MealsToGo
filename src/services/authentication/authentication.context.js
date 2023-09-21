@@ -9,32 +9,28 @@ import { auth } from "../../FirebaseConfig";
 export const AuthenticationContext = createContext();
 
 export const AuthenticationContextProvider = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState(null);
   const [error, setError] = useState("");
 
   useEffect(() => {
     onAuthStateChanged(auth, (u) => {
-      setIsLoading(true);
       if (u) {
         setUser(u);
-        setIsLoading(false);
-      } else {
-        setUser(null);
-        setIsLoading(false);
       }
     });
   }, []);
 
   const onLogin = async (email, password) => {
     setIsLoading(true);
-    await signInWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((u) => {
-        setUser(u);
-        setIsLoading(false);
+        setUser(u.user);
       })
       .catch((e) => {
         setError(e.message);
+      })
+      .finally(() => {
         setIsLoading(false);
       });
   };
@@ -47,7 +43,7 @@ export const AuthenticationContextProvider = ({ children }) => {
     }
     createUserWithEmailAndPassword(auth, email, password)
       .then((u) => {
-        setUser(u);
+        setUser(u.user);
         setIsLoading(false);
       })
       .catch((e) => {

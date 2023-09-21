@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "styled-components";
@@ -7,6 +6,9 @@ import { Button, Text, View } from "react-native";
 import { RestaurantsNavigator } from "./restaurants.navigator";
 import { MapScreen } from "../../features/map/screens/map.screen";
 import { AuthenticationContext } from "../../services/authentication/authentication.context";
+import { FavouritesContextProvider } from "../../services/favourites/favourites.context";
+import { LocationContextProvider } from "../../services/location/location.context";
+import { RestaurantContextProvider } from "../../services/restaurants/restaurants.context";
 
 const TAB_ICON = {
   RestaurantsNavigator: ["restaurant", "restaurant-outline"],
@@ -43,13 +45,21 @@ export const AppNavigator = () => {
   const theme = useTheme();
 
   return (
-    <Tab.Navigator screenOptions={(props) => createScreenOptions(props, theme)}>
-      <Tab.Screen
-        name="RestaurantsNavigator"
-        component={RestaurantsNavigator}
-      />
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
-    </Tab.Navigator>
+    <FavouritesContextProvider>
+      <LocationContextProvider>
+        <RestaurantContextProvider>
+          <Tab.Navigator
+            screenOptions={(props) => createScreenOptions(props, theme)}
+          >
+            <Tab.Screen
+              name="RestaurantsNavigator"
+              component={RestaurantsNavigator}
+            />
+            <Tab.Screen name="Map" component={MapScreen} />
+            <Tab.Screen name="Settings" component={SettingsScreen} />
+          </Tab.Navigator>
+        </RestaurantContextProvider>
+      </LocationContextProvider>
+    </FavouritesContextProvider>
   );
 };
