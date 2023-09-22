@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "MealsToGo",
-    "slug": "MealsToGo",
+    "slug": "ProjectMealsToGo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/mealsToGoLogo.png",
@@ -19,7 +19,21 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/mealsToGoLogo.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.dumagnus.ProjectMealsToGo"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "bffd4c1b-d63c-494e-8d22-aea06121f3c4"
       }
-    }
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Meals To Go to access your camera?"
+        }
+      ]
+    ]
   }
 }
