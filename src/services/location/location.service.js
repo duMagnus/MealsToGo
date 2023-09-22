@@ -3,7 +3,7 @@ import camelize from "camelize";
 export const locationRequest = (searchTerm) => {
   return fetch(
     // eslint-disable-next-line prettier/prettier
-    `https://5c06-181-192-80-36.ngrok.io/mealstogo-52743/us-central1/geocode?city=${searchTerm}`
+    `https://geocode-k67lbfn4la-uc.a.run.app?city=${searchTerm}`
   ).then((res) => {
     return res.json();
   });
