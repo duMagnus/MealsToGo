@@ -1,21 +1,16 @@
-import { mocks, mockImages } from "./mock";
 import camelize from "camelize";
 
 export const restaurantsRequest = (location) => {
-  return new Promise((resolve, reject) => {
-    const mock = mocks[location];
-    if (!mock) {
-      reject("Not found!");
-    }
-    resolve(mock);
+  return fetch(
+    // eslint-disable-next-line prettier/prettier
+    `https://5c06-181-192-80-36.ngrok.io/mealstogo-52743/us-central1/placesNearby?location=${location}`
+  ).then((res) => {
+    return res.json();
   });
 };
 
 export const restaurantsTransform = ({ results = [] }) => {
   const mappedRestults = camelize(results).map((restaurant) => {
-    restaurant.photos = restaurant.photos.map((p) => {
-      return mockImages[Math.ceil(Math.random() * mockImages.length - 1)];
-    });
     return {
       ...restaurant,
       isClosedTemporarily: restaurant.businessStatus === "CLOSED_TEMPORARILY",
