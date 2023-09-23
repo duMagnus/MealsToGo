@@ -1,9 +1,10 @@
 import camelize from "camelize";
+import { locationHost } from "../../utils/env";
 
 export const locationRequest = (searchTerm) => {
   return fetch(
     // eslint-disable-next-line prettier/prettier
-    `https://geocode-k67lbfn4la-uc.a.run.app?city=${searchTerm}`
+    `${locationHost}?city=${searchTerm}`
   ).then((res) => {
     return res.json();
   });

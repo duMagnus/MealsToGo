@@ -1,9 +1,10 @@
 import camelize from "camelize";
+import { placesHost } from "../../utils/env";
 
 export const restaurantsRequest = (location) => {
   return fetch(
     // eslint-disable-next-line prettier/prettier
-    `https://placesnearby-k67lbfn4la-uc.a.run.app?location=${location}`
+    `${placesHost}?location=${location}`
   ).then((res) => {
     return res.json();
   });
