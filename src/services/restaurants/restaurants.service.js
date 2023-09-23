@@ -1,10 +1,10 @@
 import camelize from "camelize";
-import { placesHost } from "../../utils/env";
+import { isMock, placesHost } from "../../utils/env";
 
 export const restaurantsRequest = (location) => {
   return fetch(
     // eslint-disable-next-line prettier/prettier
-    `${placesHost}?location=${location}`
+    `${placesHost}?location=${location}&mock=${isMock}`
   ).then((res) => {
     return res.json();
   });

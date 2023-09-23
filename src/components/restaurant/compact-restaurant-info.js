@@ -8,23 +8,22 @@ import { Spacer } from "../spacer/spacer.component";
 const CompactImage = styled.Image`
   border-radius: 10px;
   width: 100%;
-  height: 80px;
+  height: 150px;
 `;
 
-const CompactWebView = styled(WebView)`
+const CompactWebView = styled(WebView).attrs()`
   border-radius: 10px;
-  width: 120px;
-  height: 100px;
+  width: 190px;
 `;
 
 const Item = styled.View`
-  padding: 10px;
-  max-width: 120px;
+  padding: 5px;
+  max-width: 200px;
   align-items: center;
   background-color: white;
   border-radius: 10px;
-  width: 120px;
-  min-height: 140px;
+  width: 200px;
+  min-height: 180px;
 `;
 
 const isAndroid = Platform.OS === "android";

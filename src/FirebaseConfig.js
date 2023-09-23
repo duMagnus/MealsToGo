@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { initializeAuth, getReactNativePersistence } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyArGs3n4HVaQ1vUTGFSXdI6Kah3D1O61YA",
+  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
   authDomain: "mealstogo-52743.firebaseapp.com",
   projectId: "mealstogo-52743",
   storageBucket: "mealstogo-52743.appspot.com",

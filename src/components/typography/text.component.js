@@ -39,6 +39,14 @@ const whiteLabel = (theme) => `
     color: white;
 `;
 
+const whiteError = (theme) => `
+    text-align: center;
+    font-family: ${theme.fonts.heading};
+    font-size: ${theme.fontSizes.caption};
+    font-weight: ${theme.fontWeights.bold};
+    color: white;
+`;
+
 const variants = {
   body,
   label,
@@ -46,6 +54,7 @@ const variants = {
   error,
   hint,
   whiteLabel,
+  whiteError,
 };
 
 export const Text = styled.Text`

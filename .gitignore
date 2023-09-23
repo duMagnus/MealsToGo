@@ -38,3 +38,5 @@ yarn-error.*
 .runtimeconfig.json
 firebase-debug.log
 ui-debug.log
+
+.env

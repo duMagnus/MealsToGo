@@ -21,6 +21,7 @@ export const RestaurantContextProvider = ({ children }) => {
     restaurantsRequest(locationString.toLowerCase())
       .then(restaurantsTransform)
       .then((results) => {
+        setError(null);
         setIsLoading(false);
         setRestaurants(results);
       })
