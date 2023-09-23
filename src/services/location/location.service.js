@@ -5,9 +5,13 @@ export const locationRequest = (searchTerm) => {
   return fetch(
     // eslint-disable-next-line prettier/prettier
     `${locationHost}?city=${searchTerm}`
-  ).then((res) => {
-    return res.json();
-  });
+  )
+    .then((res) => {
+      return res.json();
+    })
+    .catch((e) => {
+      throw new Error(e);
+    });
 };
 
 export const locationTransform = (result) => {

@@ -36,10 +36,10 @@ export const MapScreen = ({ navigation }) => {
           longitudeDelta: 0.02,
         }}
       >
-        {restaurants.map((restaurant) => {
+        {restaurants.map((restaurant, index) => {
           return (
             <Marker
-              key={restaurant.name}
+              key={`${restaurant.name}-${index}`}
               title={restaurant.name}
               coordinate={{
                 latitude: restaurant.geometry.location.lat,

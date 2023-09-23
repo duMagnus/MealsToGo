@@ -21,6 +21,7 @@ module.exports.geocodeRequest = (request, response, client) => {
     })
     .catch((e) => {
       response.status(400);
-      response.send(e.response.data.error_message);
+      console.log(e);
+      response.send(e);
     });
 };
